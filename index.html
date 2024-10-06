@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Encryption Program</title>
+</head>
+<body>
+<script>
+function encryptText(inputText) {
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let encryptedText = '';
+
+  for (let i = 0; i < inputText.length; i++) {
+    const char = inputText[i].toLowerCase();
+    if (alphabet.includes(char)) {
+      const index = alphabet.indexOf(char);
+      const encryptedChar = alphabet[(index + 1) % alphabet.length];
+      encryptedText += inputText[i] === inputText[i].toUpperCase() ? encryptedChar.toUpperCase() : encryptedChar;
+    } else {
+      encryptedText += inputText[i];
+    }
+  }
+
+  return encryptedText;
+}
+const inputText = "Hello, World!";
+const encryptedText = encryptText(inputText);
+document.write(`Вхідний текст: ${inputText}<br>`);
+document.write(`Зашифрований текст: ${encryptedText}`);
+</script>
+</body>
+</html>
